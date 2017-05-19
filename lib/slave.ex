@@ -1,0 +1,2 @@
+defmodule Slave do
+end
