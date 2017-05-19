@@ -8,7 +8,8 @@ config :slave, Slave.Robot,
   aka: "/",
   responders: [
     {Hedwig.Responders.Help, []},
-    {Hedwig.Responders.Ping, []}
+    {Hedwig.Responders.Ping, []},
+    {Slave.Responders.Dialog, []}
   ]
 
 
