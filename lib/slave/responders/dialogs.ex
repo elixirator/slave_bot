@@ -9,11 +9,12 @@ defmodule Slave.Responders.Dialog do
 
   use Hedwig.Responder
   alias Slave.Services.Dialogs.Prepare
-  alias Slave.Structs.Dialog, as: DialogStruct
 
   respond ~r/note plz/, msg do
-    dialog = %DialogStruct{username: msg.user, type: :note}
-    { :ok, res } = Prepare.run(dialog)
-    emote msg, res
+    params = %{username: msg.user, type: "standup_note"}
+
+    Prepare.run(params)
+
+    emote msg, "Ready to serve You. What should I remember?"
   end
 end

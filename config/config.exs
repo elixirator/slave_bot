@@ -2,16 +2,9 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-config :slave, Slave.Robot,
-  adapter: Hedwig.Adapters.Console,
-  name: "slave",
-  aka: "/",
-  responders: [
-    {Hedwig.Responders.Help, []},
-    {Hedwig.Responders.Ping, []},
-    {Slave.Responders.Dialog, []}
-  ]
+config :slave, ecto_repos: [Slave.Repo]
 
+import_config "#{Mix.env}.exs"
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this

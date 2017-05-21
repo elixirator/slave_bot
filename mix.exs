@@ -15,7 +15,7 @@ defmodule Slave.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:hedwig, :logger],
+    [extra_applications: [:hedwig, :ecto, :postgrex, :logger],
      mod: {Slave.Application, []}]
   end
 
@@ -29,6 +29,11 @@ defmodule Slave.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:hedwig, "~> 1.0"}]
+    [
+      {:hedwig, "~> 1.0"},
+      {:postgrex, ">= 0.0.0"},
+      {:ecto, "~> 2.1"},
+      {:ecto_enum, "~> 1.0"}
+    ]
   end
 end
