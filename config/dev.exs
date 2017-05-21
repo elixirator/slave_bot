@@ -10,10 +10,9 @@ config :slave, Slave.Robot,
     {Slave.Responders.Dialog, []}
   ]
 
-  # TODO: Figure out how to deal with sensetive data
-  config :slave, Slave.Repo,
-    adapter: Ecto.Adapters.Postgres,
-    database: "slave_dev",
-    username: "slave_app",
-    password: "2eYdW8D4",
-    hostname: "localhost"
+config :slave, Slave.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "slave_dev",
+  username: "slave_app",
+  password: "2eYdW8D4",
+  hostname: "localhost"
