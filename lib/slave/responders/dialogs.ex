@@ -11,7 +11,8 @@ defmodule Slave.Responders.Dialog do
   alias Slave.Services.Dialogs.Prepare
 
   respond ~r/note plz/, msg do
-    params = %{username: msg.user, type: "standup_note"}
+    room   = msg.room || msg.user
+    params = %{username: msg.user, type: "standup_note", room: room}
 
     Prepare.run(params)
 

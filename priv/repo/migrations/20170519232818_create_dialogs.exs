@@ -6,6 +6,7 @@ defmodule Slave.Repo.Migrations.CreateDialogs do
     create table(:dialogs) do
       add :type,     :dialog_types, null: false
       add :username, :string,       null: false
+      add :room,     :string,       null: false
       add :active,   :boolean,      null: false, default: true
 
       timestamps()

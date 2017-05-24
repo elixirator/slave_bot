@@ -5,6 +5,7 @@ defmodule Slave.Entities.Dialog do
   schema "dialogs" do
     field :type,     DialogTypes
     field :username, :string
+    field :room,     :string
     field :active,   :boolean
 
     timestamps()
@@ -12,7 +13,7 @@ defmodule Slave.Entities.Dialog do
 
   def changeset(dialog, params \\ %{}) do
     dialog
-    |> cast(params, [:username, :type])
-    |> validate_required([:username, :type])
+    |> cast(params, [:username, :type, :room])
+    |> validate_required([:username, :type, :room])
   end
 end
