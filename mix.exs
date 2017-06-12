@@ -32,8 +32,7 @@ defmodule Slave.Mixfile do
     [
       {:hedwig, "~> 1.0"},
       {:postgrex, ">= 0.0.0"},
-      {:ecto, "~> 2.1"},
-      {:ecto_enum, "~> 1.0"}
+      {:ecto, "~> 2.1"}
     ]
   end
 end

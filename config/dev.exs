@@ -7,7 +7,7 @@ config :slave, Slave.Robot,
   responders: [
     {Hedwig.Responders.Help, []},
     {Hedwig.Responders.Ping, []},
-    {Slave.Responders.Dialog, []}
+    {Slave.Responders.Notes,  []}
   ]
 
 config :slave, Slave.Repo,
