@@ -1,18 +1,13 @@
 use Mix.Config
 
 config :slave, Slave.Robot,
-  adapter: Hedwig.Adapters.Console,
+  adapter: Hedwig.Adapters.Slack,
   name: "slave",
-  aka: "/",
+  aka: "@",
+  token: System.get_env("SLACK_TOKEN"),
+  rooms: [],
   responders: [
     {Hedwig.Responders.Help, []},
     {Hedwig.Responders.Ping, []},
     {Slave.Responders.Notes,  []}
   ]
-
-config :slave, Slave.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "slave_dev",
-  username: "slave_app",
-  password: "2eYdW8D4",
-  hostname: "localhost"

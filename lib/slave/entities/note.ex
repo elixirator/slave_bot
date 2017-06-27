@@ -5,6 +5,7 @@ defmodule Slave.Entities.Note do
   schema "notes" do
     field :content,  :string
     field :username, :string
+    field :room,     :string
     field :active,   :boolean
 
     timestamps()
@@ -12,7 +13,7 @@ defmodule Slave.Entities.Note do
 
   def changeset(note, params \\ %{}) do
     note
-    |> cast(params, [:content, :username])
-    |> validate_required([:content, :username])
+    |> cast(params, [:content, :username, :room])
+    |> validate_required([:content, :username, :room])
   end
 end

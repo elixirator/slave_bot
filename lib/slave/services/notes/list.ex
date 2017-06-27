@@ -1,6 +1,5 @@
 defmodule Slave.Services.Notes.List do
   alias Slave.Queries.Note, as: Query
-  alias Slave.Repo
 
   def run(%{username: username}) do
     Query.active_with_username(username)
@@ -10,7 +9,7 @@ defmodule Slave.Services.Notes.List do
   end
 
   defp prepare_message([]) do
-    "Unfortunatly, it is no messages for now"
+    "Unfortunatly, there is NO messages now"
   end
 
   defp prepare_message(messages) do

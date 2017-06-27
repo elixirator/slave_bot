@@ -13,7 +13,8 @@ defmodule Slave.Application do
       # Starts a worker by calling: Slave.Worker.start_link(arg1, arg2, arg3)
       # worker(Slave.Worker, [arg1, arg2, arg3]),
       worker(Slave.Robot, []),
-      worker(Slave.Repo, [])
+      worker(Slave.Repo, []),
+      worker(Slave.Scheduler, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

@@ -9,15 +9,16 @@ defmodule Slave.Responders.Notes do
   alias Slave.Services.Notes.Destroy
   alias Hedwig.Message
 
-  respond ~r/note (.*)/, %Message{matches: %{1 => content}} = msg do
-    emote msg, Create.run(%{username: msg.user, content: content})
+  hear ~r/note (.*)/, %Message{matches: %{1 => content}, room: room} = msg do
+    IO.inspect msg
+    emote msg, Create.run(%{username: msg.user.name, room: room, content: content})
   end
 
-  respond ~r/notes list/, msg do
-    emote msg, List.run(%{username: msg.user})
+  hear ~r/notes list/, msg do
+    emote msg, List.run(%{username: msg.user.name})
   end
 
-  respond ~r/destroy (?<all>all) (?=notes)|destroy notes (?<ids>.*)/, msg do
+  hear ~r/destroy (?<all>all) (?=notes)|destroy notes (?<ids>.*)/, msg do
     emote msg, Destroy.run(msg)
   end
 end
